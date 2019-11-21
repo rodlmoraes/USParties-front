@@ -1,0 +1,57 @@
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+  <mat-card class="box">
+    <mat-card-header>
+      <mat-card-title>Register</mat-card-title>
+    </mat-card-header>
+
+    <form #form="ngForm" [formGroup]="registerForm" (submit)="register()" class="example-form">
+
+      <mat-card-content>
+
+        <mat-form-field class="example-full-width">
+          <input formControlName="email" required matInput placeholder="Email">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <input formControlName="password" required matInput placeholder="Password">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <input formControlName="campus" required matInput placeholder="Campus">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Choose a role...</mat-label>
+          <mat-select (selectionChange)="onRoleChange($event)" [(value)]="selected">
+            <mat-option [value]="roles" *ngFor="let roles of Roles">{{roles}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <div *ngIf="role === 'Salesman'">
+          <mat-form-field class="example-full-width" >
+            <input formControlName="university" matInput placeholder="University">
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width" >
+            <input formControlName="tel" matInput placeholder="Phone">
+          </mat-form-field>
+        </div>
+
+        <div *ngIf="role === 'Academic Center'">
+          <mat-form-field class="example-full-width" >
+            <input formControlName="name" matInput placeholder="Name">
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width" >
+            <input formControlName="description" matInput placeholder="Description">
+          </mat-form-field>
+        </div>
+
+      </mat-card-content>
+
+      <button mat-stroked-button color="accent" class="btn-block">Register</button>
+
+    </form>
+  </mat-card>
+</div>

@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="d-flex justify-content-center">
+      <form
+          #form="ngForm"
+          [formGroup]="partyForm"
+          class="form col-md-4"
+          (submit)="submit()"
+      >
+          <h4 class="text-center">
+              Create Party
+          </h4>
+          <mat-form-field>
+              <input
+                  matInput
+                  placeholder="Name"
+                  formControlName="name"
+                  required
+              />
+          </mat-form-field>
+
+          <mat-form-field>
+              <input
+                  matInput
+                  placeholder="Description"
+                  formControlName="description"
+                  required
+              />
+          </mat-form-field>
+
+          <div class="ml-3 mt-3">
+                <button
+                    type="submit"
+                    class="btn btn-primary btn-block"
+                >Save</button>
+          </div>
+      </form>
+  </div>
+</div>

@@ -1,0 +1,75 @@
+<div class="container">
+  <div class="d-flex justify-content-center">
+      <form
+          #form="ngForm"
+          [formGroup]="editionForm"
+          class="form col-md-4"
+          (submit)="submit()"
+      >
+          <h4 class="text-center" *ngIf="data.create">
+              Create Edition
+          </h4>
+          <h4 class="text-center" *ngIf="!data.create">
+              Update Edition
+          </h4>
+          <mat-form-field>
+            <mat-label>Choose a party...</mat-label>
+            <mat-select formControlName="party" [value]="selected">
+              <mat-option [value]="party" *ngFor="let party of parties">{{party.name}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field>
+            <input
+                matInput
+                placeholder="Name"
+                formControlName="name"
+                required
+            />
+          </mat-form-field>
+
+          <mat-form-field>
+              <input
+                  matInput
+                  placeholder="Description"
+                  formControlName="description"
+                  required
+              />
+          </mat-form-field>
+
+          <mat-form-field>
+              <input
+                  matInput
+                  placeholder="Local"
+                  formControlName="local"
+                  required
+              />
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Choose a lot...</mat-label>
+            <mat-select formControlName="actualLot" [value]="selected">
+              <mat-option [value]="lot" *ngFor="let lot of lots">{{lot.price}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field>
+            <input
+                matInput
+                placeholder="Date (yyyy-MM-dd)"
+                formControlName="date"
+                required
+            />
+          </mat-form-field>
+
+          <div class="ml-3 mt-3">
+                <button
+                    type="submit"
+                    class="btn btn-primary btn-block"
+                >Save</button>
+          </div>
+      </form>
+  </div>
+</div>

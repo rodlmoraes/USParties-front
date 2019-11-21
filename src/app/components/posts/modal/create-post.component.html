@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="d-flex justify-content-center">
+      <form
+          #form="ngForm"
+          [formGroup]="postForm"
+          class="form col-md-4"
+          (submit)="submit()"
+      >
+          <h4 class="text-center" *ngIf="data.create">
+              Create Post
+          </h4>
+          <h4 class="text-center" *ngIf="!data.create">
+              Update Post
+          </h4>
+          <mat-form-field>
+            <mat-label>Choose a party...</mat-label>
+            <mat-select formControlName="partyEdition" [value]="selected">
+              <mat-option [value]="edition" *ngFor="let edition of partyEditions">{{edition.name}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field>
+              <input
+                  matInput
+                  placeholder="Amount"
+                  formControlName="amount"
+                  required
+              />
+          </mat-form-field>
+
+          <mat-form-field>
+              <input
+                  matInput
+                  placeholder="Price"
+                  formControlName="price"
+                  required
+              />
+          </mat-form-field>
+
+          <div class="ml-3 mt-3">
+                <button
+                    type="submit"
+                    class="btn btn-primary btn-block"
+                >Save</button>
+          </div>
+      </form>
+  </div>
+</div>
